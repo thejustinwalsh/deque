@@ -1,8 +1,8 @@
-import { createClient } from "@rspc/client";
-import { TauriTransport } from "@rspc/tauri";
-import { createReactQueryHooks } from "@rspc/react";
-import { QueryClient } from "@tanstack/react-query";
 import type { Procedures } from "./bindings";
+import { createClient } from "@rspc/client";
+import { createReactQueryHooks } from "@rspc/react";
+import { TauriTransport } from "@rspc/tauri";
+import { QueryClient } from "@tanstack/react-query";
 
 export const client = createClient<Procedures>({
   transport: new TauriTransport(),

@@ -1,0 +1,15 @@
+deque
+fullscreen
+icns
+rspc
+tanstack
+tauri
+runtimes
+taplo
+trivago
+markdownlint
+bradlc
+tailwindcss
+trunkio
+consts
+keybind

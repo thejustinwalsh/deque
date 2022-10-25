@@ -1,7 +1,7 @@
+import { queryClient, useMutation } from "hooks/rspc";
+import { tw } from "lib/tailwind-backticks";
 import { FormEvent, useState } from "react";
 import { defineMessages, useIntl } from "react-intl";
-import { tw } from "lib/tailwind-backticks";
-import { useMutation, queryClient } from "hooks/rspc";
 
 export default function CreateCollection() {
   const { formatMessage } = useIntl();

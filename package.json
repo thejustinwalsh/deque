@@ -16,6 +16,11 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@trunkio/launcher": "^1.2.2"
+    "@cspell/dict-rust": "^3.0.0",
+    "@cspell/dict-typescript": "^3.0.1",
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
+    "@trunkio/launcher": "^1.2.2",
+    "cspell": "^6.12.0",
+    "prettier": "^2.7.1"
   }
 }

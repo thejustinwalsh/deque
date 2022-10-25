@@ -2,6 +2,7 @@
   "recommendations": [
     "tauri-apps.tauri-vscode",
     "rust-lang.rust-analyzer",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "trunk.io"
   ]
 }
