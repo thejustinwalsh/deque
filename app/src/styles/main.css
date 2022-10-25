@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: theme("colors.teal.500");
+  --color-secondary: theme("colors.purple.500");
+  --color-accent: theme("colors.pink.500");
+  --color-foreground: theme("colors.gray.900");
+  --color-background-100: theme("colors.gray.100");
+  --color-background-200: theme("colors.gray.200");
+  --color-background-300: theme("colors.gray.300");
+  --color-background-contrast: theme("colors.white");
+}
+
+.dark {
+  --color-primary: theme("colors.purple.700");
+  --color-secondary: theme("colors.teal.400");
+  --color-accent: theme("colors.pink.500");
+  --color-foreground: theme("colors.gray.100");
+  --color-background-100: theme("colors.gray.900");
+  --color-background-200: theme("colors.gray.800");
+  --color-background-300: theme("colors.gray.700");
+  --color-background-contrast: theme("colors.black");
+}

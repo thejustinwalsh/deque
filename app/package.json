@@ -1,0 +1,47 @@
+{
+  "name": "deque",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "postinstall": "patch-package",
+    "dev": "tauri dev",
+    "tauri": "tauri",
+    "vite-dev": "vite",
+    "vite-build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.3",
+    "@heroicons/react": "^2.0.12",
+    "@react-hook/debounce": "^4.0.0",
+    "@rspc/client": "^0.1.2",
+    "@rspc/react": "^0.1.2",
+    "@rspc/tauri": "^0.1.2",
+    "@tanstack/react-query": "^4.10.3",
+    "@tanstack/react-query-devtools": "^4.12.0",
+    "@tauri-apps/api": "^1.1.0",
+    "@types/react-portal": "^4.0.4",
+    "cross-env": "^7.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intl": "^6.2.1",
+    "react-portal": "^4.2.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
+    "@tauri-apps/cli": "^1.1.0",
+    "@trunkio/launcher": "^1.2.2",
+    "@types/node": "^18.7.10",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
+    "autoprefixer": "^10.4.12",
+    "patch-package": "^6.4.7",
+    "postcss": "^8.4.18",
+    "rollup-plugin-transform-tagged-template": "^0.0.3",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.2",
+    "vite-tsconfig-paths": "^3.5.1"
+  }
+}

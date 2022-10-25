@@ -1,0 +1,28 @@
+diff --git a/node_modules/rollup-plugin-transform-tagged-template/esm/index.js b/node_modules/rollup-plugin-transform-tagged-template/esm/index.js
+index a353769..f766612 100644
+--- a/node_modules/rollup-plugin-transform-tagged-template/esm/index.js
++++ b/node_modules/rollup-plugin-transform-tagged-template/esm/index.js
+@@ -1,4 +1,4 @@
+-import {parse, ParserOptions} from '@babel/parser';
++import {parse} from '@babel/parser';
+ import traverse from '@babel/traverse';
+ import generate from '@babel/generator';
+ import * as rollup from 'rollup';
+@@ -32,7 +32,7 @@ export function transformTaggedContent(content, options = {}) {
+ 
+ 	const ast = parse(content, parserOptions);
+ 
+-	traverse(ast, {
++	traverse.default(ast, {
+ 		TaggedTemplateExpression(path) {
+ 			if (tagsToProcess.includes(path.node.tag.name)) {
+ 				for (const quasi of path.node.quasi.quasis) {
+@@ -44,7 +44,7 @@ export function transformTaggedContent(content, options = {}) {
+ 		}
+ 	});
+ 
+-	return generate(ast);
++	return generate.default(ast);
+ }
+ 
+ /**

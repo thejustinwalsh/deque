@@ -1,0 +1,21 @@
+{
+  "name": "@deque/root",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "app": "pnpm --filter deque --",
+    "app:build": "pnpm --filter deque -- tauri build",
+    "app:dev": "pnpm --filter deque -- dev",
+    "app:prisma": "cd app/src-tauri && cargo prisma --",
+    "trunk": "trunk"
+  },
+  "engines": {
+    "pnpm": ">=6.0.0",
+    "npm": "pnpm",
+    "yarn": "pnpm",
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@trunkio/launcher": "^1.2.2"
+  }
+}

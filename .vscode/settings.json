@@ -1,0 +1,17 @@
+{
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.diagnostics.experimental.enable": false,
+  "editor.formatOnSave": true,
+  "cSpell.words": ["deque", "fullscreen", "icns", "rspc", "tanstack", "tauri"],
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tailwind`([^`]*)" // tailwind`...`
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  }
+}
