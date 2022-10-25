@@ -1,6 +1,6 @@
+import { FormEvent, useState } from "react";
 import { queryClient, useMutation } from "hooks/rspc";
 import { tw } from "lib/tailwind-backticks";
-import { FormEvent, useState } from "react";
 import { defineMessages, useIntl } from "react-intl";
 
 export default function CreateCollection() {
@@ -11,7 +11,7 @@ export default function CreateCollection() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     createCollection(name, {
-      onSuccess: () => queryClient.invalidateQueries(["collection.list"]),
+      onSuccess: () => void queryClient.invalidateQueries(["collection.list"]),
     });
     setName("");
   };

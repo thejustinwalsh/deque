@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
-import { tw } from "lib/tailwind-backticks";
 import Collection from "components/collections/Collection";
 import CreateCollection from "components/collections/CreateCollection";
 import { useQuery } from "hooks/rspc";
+import { tw } from "lib/tailwind-backticks";
 
 function App() {
   const { data: collections } = useQuery(["collection.list"]);

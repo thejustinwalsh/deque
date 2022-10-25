@@ -1,6 +1,6 @@
+import { FormEvent, useState } from "react";
 import { queryClient, useMutation } from "hooks/rspc";
 import { tw } from "lib/tailwind-backticks";
-import { FormEvent, useState } from "react";
 import { defineMessages, useIntl } from "react-intl";
 
 interface Props {
@@ -17,7 +17,7 @@ export default function CreateItem({ collection }: Props) {
     createItem(
       { title, collection_id: collection },
       {
-        onSuccess: () => queryClient.invalidateQueries(["item.list"]),
+        onSuccess: () => void queryClient.invalidateQueries(["item.list"]),
       }
     );
     setTitle("");

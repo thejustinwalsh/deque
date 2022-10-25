@@ -13,3 +13,6 @@ tailwindcss
 trunkio
 consts
 keybind
+headlessui
+heroicons
+parens

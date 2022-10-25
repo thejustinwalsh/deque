@@ -1,0 +1,16 @@
+pluginSearchDirs: ["."]
+printWidth: 100
+singleQuote: false
+trailingComma: "es5"
+bracketSameLine: false
+semi: true
+quoteProps: "consistent"
+importOrder:
+  - "^react$"
+  - "^@?\\w+[\\/\\w-]+$"
+  - "^./.*$"
+  - "^.*\\.\\w+$"
+importOrderSeparation: false
+importOrderSortSpecifiers: true
+plugins:
+  - "@trivago/prettier-plugin-sort-imports"

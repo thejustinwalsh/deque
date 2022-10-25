@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { useDebounceCallback } from "@react-hook/debounce";
 import CreateItem from "components/items/CreateItem";
 import Item from "components/items/Item";
 import { queryClient, useMutation, useQuery } from "hooks/rspc";
 import type { Collection } from "hooks/rspc/bindings";
 import { tw } from "lib/tailwind-backticks";
-import { useState } from "react";
 
 interface Props {
   col: Collection;
@@ -15,10 +15,10 @@ export default function CollectionComp({ col }: Props) {
 
   const { data: items } = useQuery(["item.list", col.id]);
   const { mutate: updateMutation } = useMutation("collection.update", {
-    onError: () => queryClient.invalidateQueries(["collection.list"]),
+    onError: () => void queryClient.invalidateQueries(["collection.list"]),
   });
   const { mutate: deleteCollection } = useMutation("collection.delete", {
-    onSuccess: () => queryClient.invalidateQueries(["collection.list"]),
+    onSuccess: () => void queryClient.invalidateQueries(["collection.list"]),
   });
 
   const updateCollection = useDebounceCallback(updateMutation, 20);

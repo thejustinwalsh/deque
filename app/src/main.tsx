@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
-import { Portal } from "react-portal";
+import React, { useEffect, useState } from "react";
+import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
+import { listen } from "@tauri-apps/api/event";
+import { RSPCProvider, client, queryClient } from "hooks/rspc";
 import ReactDOM from "react-dom/client";
 import { IntlProvider } from "react-intl";
-import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
-import { client, queryClient, RSPCProvider } from "hooks/rspc";
+import { Portal } from "react-portal";
 import App from "./App";
-import { listen } from "@tauri-apps/api/event";
-import { useState } from "react";
-
 import "styles/main.css";
 
 const handleTranslationError = (e: any) => {
@@ -17,15 +15,12 @@ const handleTranslationError = (e: any) => {
 const DevTools = () => {
   const [showDevTools, setShowDevTools] = useState(false);
 
-  const handleDragStart = (
-    startEvent: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleDragStart = (startEvent: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const panelElement = startEvent.currentTarget.parentElement;
     if (!panelElement) return;
     if (startEvent.button !== 0) return;
 
-    const { height, width } = panelElement.getBoundingClientRect();
-    const startX = startEvent.clientX;
+    const { height } = panelElement.getBoundingClientRect();
     const startY = startEvent.clientY;
     let newSize = 0;
 
@@ -36,13 +31,13 @@ const DevTools = () => {
       panelElement.style.height = `${newSize}px`;
     };
 
-    const unsub = () => {
+    const remove = () => {
       document.removeEventListener("mousemove", run, false);
-      document.removeEventListener("mouseUp", unsub, false);
+      document.removeEventListener("mouseUp", remove, false);
     };
 
     document.addEventListener("mousemove", run, false);
-    document.addEventListener("mouseup", unsub, false);
+    document.addEventListener("mouseup", remove, false);
   };
 
   useEffect(() => {

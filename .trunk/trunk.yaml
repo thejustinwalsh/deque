@@ -8,6 +8,7 @@ plugins:
       uri: https://github.com/trunk-io/plugins
 lint:
   enabled:
+    - eslint@8.26.0
     - cspell@6.12.0
     - markdownlint@0.32.2
     - gitleaks@8.15.0
@@ -20,3 +21,7 @@ runtimes:
   enabled:
     - go@1.18.3
     - node@16.14.2
+actions:
+  enabled:
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit

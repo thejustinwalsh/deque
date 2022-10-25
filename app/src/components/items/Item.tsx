@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { useDebounceCallback } from "@react-hook/debounce";
 import { queryClient, useMutation } from "hooks/rspc";
 import { Item } from "hooks/rspc/bindings";
 import { tw } from "lib/tailwind-backticks";
-import { useState } from "react";
 
 interface Props {
   item: Item;
@@ -13,10 +13,10 @@ export default function ItemComp({ item }: Props) {
   const [isEditing, setIsEditing] = useState(false);
 
   const { mutate: updateMutation } = useMutation("item.update", {
-    onError: () => queryClient.invalidateQueries(["item.list", item.collectionId]),
+    onError: () => void queryClient.invalidateQueries(["item.list", item.collectionId]),
   });
   const { mutate: deleteItem } = useMutation("item.delete", {
-    onSuccess: () => queryClient.invalidateQueries(["item.list", item.collectionId]),
+    onSuccess: () => void queryClient.invalidateQueries(["item.list", item.collectionId]),
   });
 
   // TODO: create a cancelable / immediate debounced callback
