@@ -10,6 +10,7 @@
     "prisma"
   ],
   "scripts": {
+    "postinstall": "trunk install",
     "app": "pnpm --filter deque --",
     "app:build": "pnpm --filter deque -- tauri build",
     "app:dev": "pnpm --filter deque -- dev",
