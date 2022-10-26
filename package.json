@@ -10,6 +10,7 @@
     "prisma"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "postinstall": "trunk install",
     "app": "pnpm --filter deque --",
     "app:build": "pnpm --filter deque -- tauri build",
@@ -18,11 +19,10 @@
     "trunk": "trunk"
   },
   "engines": {
-    "pnpm": ">=6.0.0",
-    "npm": "pnpm",
-    "yarn": "pnpm",
+    "pnpm": ">=7.14.0",
     "node": ">=16.0.0"
   },
+  "packageManager": "pnpm@7.14.0",
   "devDependencies": {
     "@cspell/dict-rust": "^3.0.0",
     "@cspell/dict-typescript": "^3.0.1",
