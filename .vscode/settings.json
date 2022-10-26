@@ -17,6 +17,9 @@
     "editor.tabSize": 4,
     "editor.detectIndentation": false
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "trunk.io"
+  },
   "editor.formatOnSave": true,
   "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.diagnostics.experimental.enable": false,
