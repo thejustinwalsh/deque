@@ -33,7 +33,6 @@ async fn main() {
         .expect("Failed to create database client"),
     );
 
-    #[cfg(debug_assertions)]
     client
         ._db_push()
         .await
