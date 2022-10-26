@@ -1,26 +1,27 @@
 {
   "[rust]": {
-    "editor.defaultFormatter": "trunk.io",
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
   "[json][jsonc][javascript][typescript][typescriptreact]": {
-    "editor.defaultFormatter": "trunk.io",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
   "[yaml][toml]": {
-    "editor.defaultFormatter": "trunk.io",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "editor.detectIndentation": false
   },
   "[markdown]": {
-    "editor.defaultFormatter": "trunk.io"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
+  "files.eol": "\n",
   "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.diagnostics.experimental.enable": false,
   "tailwindCSS.experimental.classRegex": [

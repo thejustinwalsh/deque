@@ -11,12 +11,12 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "trunk install",
+    "prepare": "husky install",
     "app": "pnpm --filter deque --",
     "app:build": "pnpm --filter deque -- tauri build",
     "app:dev": "pnpm --filter deque -- dev",
     "app:prisma": "cd app/src-tauri && cargo prisma --",
-    "trunk": "trunk"
+    "lint": "lint-staged"
   },
   "engines": {
     "pnpm": ">=7.14.0",
@@ -27,7 +27,6 @@
     "@cspell/dict-rust": "^3.0.0",
     "@cspell/dict-typescript": "^3.0.1",
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",
-    "@trunkio/launcher": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": ">=5.0.0 <6.0.0",
     "cspell": "^6.12.0",
@@ -38,6 +37,8 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.10",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "typescript": "*"
   }

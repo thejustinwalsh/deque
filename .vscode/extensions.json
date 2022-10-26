@@ -3,6 +3,8 @@
     "tauri-apps.tauri-vscode",
     "rust-lang.rust-analyzer",
     "bradlc.vscode-tailwindcss",
-    "trunk.io"
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
