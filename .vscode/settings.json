@@ -5,11 +5,17 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "trunk.io"
+  "[json][jsonc][javascript][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "trunk.io",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "trunk.io"
+  "[yaml][toml]": {
+    "editor.defaultFormatter": "trunk.io",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false
   },
   "editor.formatOnSave": true,
   "rust-analyzer.procMacro.enable": true,

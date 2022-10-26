@@ -1,9 +1,6 @@
 [workspace]
 resolver = "2"
-members = [
-  "app/src-tauri",
-  "crates/*",
-]
+members = ["app/src-tauri", "crates/*"]
 
 [workspace.dependencies]
 prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", tag = "0.6.2", features = [

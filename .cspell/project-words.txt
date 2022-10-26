@@ -16,3 +16,9 @@ keybind
 headlessui
 heroicons
 parens
+esbuild
+Menlo
+Cascadia
+Segoe
+Roboto
+Fira
