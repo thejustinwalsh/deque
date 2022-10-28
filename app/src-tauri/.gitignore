@@ -2,7 +2,7 @@
 /target/
 
 # ignore prisma dev db
-./prisma/dev.db
+/prisma/dev.db
 
 # ignore generated prisma client (pnpm run app:prisma generate)
-./src/db/mod.rs
+/src/db/mod.rs
