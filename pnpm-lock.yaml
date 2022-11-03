@@ -55,7 +55,6 @@ importers:
       '@tanstack/react-query-devtools': ^4.12.0
       '@tauri-apps/api': ^1.1.0
       '@tauri-apps/cli': ^1.1.0
-      '@trunkio/launcher': ^1.2.2
       '@types/node': ^18.7.10
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
@@ -95,7 +94,6 @@ importers:
     devDependencies:
       '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.1
       '@tauri-apps/cli': 1.1.1
-      '@trunkio/launcher': 1.2.2
       '@types/node': 18.11.5
       '@types/react': 18.0.23
       '@types/react-dom': 18.0.7
@@ -1113,11 +1111,6 @@ packages:
       prettier: 2.7.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@trunkio/launcher/1.2.2:
-    resolution: {integrity: sha512-HHgrpW1QkfoORWnhlJhrGpsqtNCvHuNaoFVMLIhb7duay9Ra0k4tCzZ8eVjzd5n2aHMVzKQ0rZMmr0zrk2Rndw==}
-    hasBin: true
     dev: true
 
   /@types/hoist-non-react-statics/3.3.1:

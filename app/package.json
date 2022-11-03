@@ -136,7 +136,6 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "@tauri-apps/cli": "^1.1.0",
-    "@trunkio/launcher": "^1.2.2",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
