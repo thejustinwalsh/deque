@@ -12,11 +12,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "app": "pnpm --filter deque --",
-    "app:build": "pnpm --filter deque -- tauri build",
+    "app:build": "pnpm --filter deque -- build",
     "app:dev": "pnpm --filter deque -- dev",
-    "app:prisma": "cd app/src-tauri && cargo prisma --",
-    "lint": "lint-staged"
+    "app:prisma": "pnpm --filter deque -- prisma"
   },
   "engines": {
     "pnpm": ">=7.14.0",
@@ -24,6 +22,7 @@
   },
   "packageManager": "pnpm@7.14.0",
   "devDependencies": {
+    "@cspell/cspell-types": "^6.14.0",
     "@cspell/dict-rust": "^3.0.0",
     "@cspell/dict-typescript": "^3.0.1",
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",

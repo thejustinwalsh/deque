@@ -24,3 +24,4 @@ Roboto
 Fira
 preinstall
 pnpm
+wireit

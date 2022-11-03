@@ -5,10 +5,115 @@
   "type": "module",
   "scripts": {
     "postinstall": "patch-package",
-    "dev": "tauri dev",
-    "tauri": "tauri",
-    "vite-dev": "vite",
-    "vite-build": "tsc && vite build"
+    "build": "wireit",
+    "build:frontend": "wireit",
+    "build:frontend:tsc": "wireit",
+    "build:frontend:rspc": "wireit",
+    "build:backend": "wireit",
+    "build:prisma": "wireit",
+    "dev": "pnpm run dev:backend --watch",
+    "dev:frontend": "wireit",
+    "dev:backend": "wireit",
+    "prisma": "cd src-tauri && cargo prisma"
+  },
+  "wireit": {
+    "dev:frontend": {
+      "command": "vite",
+      "service": true,
+      "dependencies": [
+        "build:frontend:rspc"
+      ]
+    },
+    "dev:backend": {
+      "command": "tauri dev --no-watch",
+      "service": true,
+      "files": [
+        "src-tauri/src/**/*.rs",
+        "src-tauri/build.rs",
+        "src-tauri/tauri.conf.json"
+      ],
+      "packageLocks": [
+        "Cargo.lock"
+      ],
+      "dependencies": [
+        "build:prisma",
+        "dev:frontend"
+      ]
+    },
+    "build": {
+      "dependencies": [
+        "build:backend"
+      ]
+    },
+    "build:frontend": {
+      "command": "vite build",
+      "files": [
+        "src/**"
+      ],
+      "output": [
+        "dist/**"
+      ],
+      "packageLocks": [
+        "pnpm-lock.yaml"
+      ],
+      "dependencies": [
+        "build:frontend:tsc"
+      ]
+    },
+    "build:frontend:rspc": {
+      "command": "cargo test -p deque routes::tests::export_ts_bindings -- --exact",
+      "files": [
+        "src-tauri/src/routes/**/*.rs"
+      ],
+      "output": [
+        "src/hooks/rspc/bindings.ts"
+      ],
+      "packageLocks": [
+        "Cargo.lock"
+      ],
+      "dependencies": [
+        "build:prisma"
+      ]
+    },
+    "build:frontend:tsc": {
+      "command": "tsc --pretty",
+      "files": [
+        "src/**/*.{ts,tsx}",
+        "tsconfig*.json"
+      ],
+      "packageLocks": [
+        "pnpm-lock.yaml"
+      ],
+      "dependencies": [
+        "build:frontend:rspc"
+      ]
+    },
+    "build:backend": {
+      "command": "tauri build",
+      "files": [
+        "src-tauri/src/**/*.rs"
+      ],
+      "packageLocks": [
+        "Cargo.lock"
+      ],
+      "dependencies": [
+        "build:prisma",
+        "build:frontend"
+      ]
+    },
+    "build:prisma": {
+      "command": "pnpm run prisma generate",
+      "files": [
+        "src-tauri/prisma/schema.prisma",
+        "src-tauri/prisma/migrations/**/*"
+      ],
+      "output": [
+        "src-tauri/src/db/mod.rs"
+      ],
+      "packageLocks": [
+        "Cargo.lock"
+      ]
+    }
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
@@ -25,7 +130,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.2.1",
-    "react-portal": "^4.2.2"
+    "react-portal": "^4.2.2",
+    "wireit": "0.7.3-pre.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",

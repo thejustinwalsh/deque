@@ -7,8 +7,6 @@ mod app;
 mod db;
 mod routes;
 
-use routes::Router;
-use rspc::Config;
 use std::{fs, path::PathBuf, sync::Arc};
 
 #[tauri::command]
@@ -38,16 +36,7 @@ async fn main() {
         .await
         .expect("Failed to initialize database");
 
-    let router = Router::new()
-        .config(
-            Config::new()
-                .export_ts_bindings("../src/hooks/rspc/bindings.ts")
-                .set_ts_bindings_header("/* eslint-disable */"),
-        )
-        .merge("collection.", routes::collections::mount())
-        .merge("item.", routes::items::mount())
-        .build()
-        .arced();
+    let router = routes::mount();
 
     tauri::Builder::default()
         .setup(|_app| Ok(()))
