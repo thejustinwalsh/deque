@@ -19,3 +19,4 @@ ignorePaths:
     - ".prettierignore"
     - "app/*.cjs"
     - "app/src-tauri/src/db/mod.rs"
+    - "*.excalidraw"
