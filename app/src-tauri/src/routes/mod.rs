@@ -5,7 +5,7 @@ use super::db;
 use rspc::Config;
 use std::sync::Arc;
 
-type RouterCtx = Arc<db::PrismaClient>;
+type RouterCtx = Arc<db::SurrealClient>;
 type RouterBuilder = rspc::RouterBuilder<RouterCtx>;
 pub type Router = rspc::Router<RouterCtx>;
 

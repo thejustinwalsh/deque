@@ -4,7 +4,7 @@ import { tw } from "lib/tailwind-backticks";
 import { defineMessages, useIntl } from "react-intl";
 
 interface Props {
-  collection: number;
+  collection: String;
 }
 
 export default function CreateItem({ collection }: Props) {

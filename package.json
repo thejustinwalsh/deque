@@ -13,8 +13,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "app:build": "pnpm --filter deque -- build",
-    "app:dev": "pnpm --filter deque -- dev",
-    "app:prisma": "pnpm --filter deque -- prisma"
+    "app:dev": "pnpm --filter deque -- dev"
   },
   "engines": {
     "pnpm": ">=7.14.0",

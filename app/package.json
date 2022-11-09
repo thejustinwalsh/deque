@@ -13,8 +13,7 @@
     "build:prisma": "wireit",
     "dev": "pnpm run dev:backend --watch",
     "dev:frontend": "wireit",
-    "dev:backend": "wireit",
-    "prisma": "cd src-tauri && cargo prisma"
+    "dev:backend": "wireit"
   },
   "wireit": {
     "dev:frontend": {
@@ -36,7 +35,6 @@
         "Cargo.lock"
       ],
       "dependencies": [
-        "build:prisma",
         "dev:frontend"
       ]
     },
@@ -71,9 +69,7 @@
       "packageLocks": [
         "Cargo.lock"
       ],
-      "dependencies": [
-        "build:prisma"
-      ]
+      "dependencies": []
     },
     "build:frontend:tsc": {
       "command": "tsc --pretty",
@@ -97,21 +93,7 @@
         "Cargo.lock"
       ],
       "dependencies": [
-        "build:prisma",
         "build:frontend"
-      ]
-    },
-    "build:prisma": {
-      "command": "pnpm run prisma generate",
-      "files": [
-        "src-tauri/prisma/schema.prisma",
-        "src-tauri/prisma/migrations/**/*"
-      ],
-      "output": [
-        "src-tauri/src/db/mod.rs"
-      ],
-      "packageLocks": [
-        "Cargo.lock"
       ]
     }
   },

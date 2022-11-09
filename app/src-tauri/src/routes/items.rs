@@ -1,7 +1,8 @@
-use super::db::item;
 use super::RouterBuilder;
-use rspc::Type;
+use rspc::{ExecError, Type};
 use serde::Deserialize;
+use std::collections::BTreeMap;
+use surrealdb::sql::Value;
 
 pub fn mount() -> RouterBuilder {
     RouterBuilder::new()
@@ -9,66 +10,48 @@ pub fn mount() -> RouterBuilder {
             #[derive(Type, Deserialize)]
             struct ItemCreateArgs {
                 title: String,
-                collection_id: i32,
+                collection_id: String,
             }
             t(|db, args: ItemCreateArgs| async move {
-                db.item()
-                    .create(
-                        args.title,
-                        vec![item::collection_id::set(Some(args.collection_id))],
-                    )
-                    .exec()
+                let mut vars = BTreeMap::new();
+                vars.insert(String::from("title"), Value::from(args.title));
+                vars.insert(
+                    String::from("collection_id"),
+                    Value::from(args.collection_id),
+                );
+
+                db.datastore
+                    .execute("CREATE item", &db.session, Some(vars), true)
                     .await
-                    .map_err(Into::into)
+                    .map_err(|err| -> rspc::Error {
+                        ExecError::UnsupportedMethod(err.to_string()).into()
+                    })
+                    .map(|_| ())
             })
         })
         .query("read", |t| {
-            t(|db, id| async move {
-                db.item()
-                    .find_unique(item::id::equals(id))
-                    .exec()
-                    .await
-                    .map_err(Into::into)
+            t(|db, id: String| async move {
+                todo!("read item");
             })
         })
         .mutation("update", |t| {
             #[derive(Type, Deserialize)]
             struct ItemUpdateArgs {
-                id: i32,
+                id: String,
                 title: String,
                 completed: bool,
             }
 
             t(|db, args: ItemUpdateArgs| async move {
-                db.item()
-                    .update(
-                        item::id::equals(args.id),
-                        vec![
-                            item::title::set(args.title),
-                            item::completed::set(args.completed),
-                        ],
-                    )
-                    .exec()
-                    .await
-                    .map_err(Into::into)
+                todo!("update item");
             })
         })
         .mutation("delete", |t| {
-            t(|db, id| async move {
-                db.item()
-                    .delete(item::id::equals(id))
-                    .exec()
-                    .await
-                    .map_err(Into::into)
+            t(|db, id: String| async move {
+                todo!("delete item");
             })
         })
         .query("list", |t| {
-            t(|db, collection_id| async move {
-                db.item()
-                    .find_many(vec![item::collection_id::equals(collection_id)])
-                    .exec()
-                    .await
-                    .map_err(Into::into)
-            })
+            t(|db, collection_id: String| async move { vec!["test"] })
         })
 }

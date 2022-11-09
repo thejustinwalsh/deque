@@ -21,20 +21,18 @@ async fn main() {
         .join("dev.tjw.deque");
     fs::create_dir_all(&data_path).expect("Failed to create data directory");
 
-    let db_path = data_path.join("db.sqlite");
+    let db_path = data_path.join("db.surrealdb");
 
     let client = Arc::new(
-        db::new_client_with_url(
-            format!("file:{}", db_path.to_str().unwrap_or("db.sqlite")).as_str(),
-        )
-        .await
-        .expect("Failed to create database client"),
+        db::connect(format!("file:{}", db_path.to_str().unwrap_or("db.surrealdb")).as_str())
+            .await
+            .expect("Failed to create database client"),
     );
 
-    client
-        ._db_push()
-        .await
-        .expect("Failed to initialize database");
+    //client
+    //    ._db_push()
+    //    .await
+    //    .expect("Failed to initialize database");
 
     let router = routes::mount();
 
